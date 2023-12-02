@@ -5,19 +5,19 @@ DEPLOYED SITE: [Click here](https://sealproject1-gules.vercel.app/)
 
 ## Description on Project
 
-A paragraph discussing the idea of your project
 
-> I am creating a pokemon BMI matcher to see, based on your persoal BMI, which pokemon you would be based on your BMI.
+> I am creating a Pokemon fight club app based on weight class. The user will input their own weight and based on that a host of pokemon in your weight class will be the pokemon you would have to fight if you were a pokemon.
 
 ## Details about the API
 
+> The API I am using is a pokemon API with a wide-range of pokemon attributes for each pokemon. The API requires no authenication to utilize. 
 Give me a brief description of the API you are using and how you plan on using it. Does it use some sort of authentication like an APIkey. List some of the urls are using below.
 
-- `https://www.perfumeapi.com/ingredients`: This returns a json array with all the different ingedients
+- `https://pokeapi.co/api/v2/pokemon/`: This returns a json object with all the different pokemon
 
 Sample Fetch/Ajax called:
 ```js
-const url = "https://www.perfumeapi.com/ingredients"
+const url = "https://pokeapi.co/api/v2/pokemon/"
 fetch(url)
 .then((res) => res.json())
 .then((data) => console.log(data))
@@ -25,61 +25,106 @@ fetch(url)
 
 The Data I get back:
 ```json
-[
-  {
-    "ingredient": "Bergamot",
-    "description": "A citrus fruit with a bright, uplifting scent."
-  },
-  {
-    "ingredient": "Lavender",
-    "description": "A flowering plant with a calming, relaxing scent."
-  },
-  {
-    "ingredient": "Rose",
-    "description": "A flowering plant with a romantic, feminine scent."
-  },
-  {
-    "ingredient": "Jasmine",
-    "description": "A flowering plant with an exotic, sensual scent."
-  },
-  {
-    "ingredient": "Sandalwood",
-    "description": "A woody plant with a warm, earthy scent."
-  },
-  {
-    "ingredient": "Patchouli",
-    "description": "A herb with a deep, musky scent."
-  },
-  {
-    "ingredient": "Vanilla",
-    "description": "A spice with a sweet, gourmand scent."
-  },
-  {
-    "ingredient": "Amber",
-    "description": "A fossilized resin with a warm, balsamic scent."
-  },
-  {
-    "ingredient": "Musk",
-    "description": "An animal secretion with a sensual, musky scent."
-  },
-  {
-    "ingredient": "Oud",
-    "description": "A type of agarwood with a dark, mysterious scent."
-  }
-]
+{
+  "count": 1292,
+  "next": "https://pokeapi.co/api/v2/pokemon/?offset=20&limit=20",
+  "previous": null,
+  "results": [
+    {
+      "name": "bulbasaur",
+      "url": "https://pokeapi.co/api/v2/pokemon/1/"
+    },
+    {
+      "name": "ivysaur",
+      "url": "https://pokeapi.co/api/v2/pokemon/2/"
+    },
+    {
+      "name": "venusaur",
+      "url": "https://pokeapi.co/api/v2/pokemon/3/"
+    },
+    {
+      "name": "charmander",
+      "url": "https://pokeapi.co/api/v2/pokemon/4/"
+    },
+    {
+      "name": "charmeleon",
+      "url": "https://pokeapi.co/api/v2/pokemon/5/"
+    },
+    {
+      "name": "charizard",
+      "url": "https://pokeapi.co/api/v2/pokemon/6/"
+    },
+    {
+      "name": "squirtle",
+      "url": "https://pokeapi.co/api/v2/pokemon/7/"
+    },
+    {
+      "name": "wartortle",
+      "url": "https://pokeapi.co/api/v2/pokemon/8/"
+    },
+    {
+      "name": "blastoise",
+      "url": "https://pokeapi.co/api/v2/pokemon/9/"
+    },
+    {
+      "name": "caterpie",
+      "url": "https://pokeapi.co/api/v2/pokemon/10/"
+    },
+    {
+      "name": "metapod",
+      "url": "https://pokeapi.co/api/v2/pokemon/11/"
+    },
+    {
+      "name": "butterfree",
+      "url": "https://pokeapi.co/api/v2/pokemon/12/"
+    },
+    {
+      "name": "weedle",
+      "url": "https://pokeapi.co/api/v2/pokemon/13/"
+    },
+    {
+      "name": "kakuna",
+      "url": "https://pokeapi.co/api/v2/pokemon/14/"
+    },
+    {
+      "name": "beedrill",
+      "url": "https://pokeapi.co/api/v2/pokemon/15/"
+    },
+    {
+      "name": "pidgey",
+      "url": "https://pokeapi.co/api/v2/pokemon/16/"
+    },
+    {
+      "name": "pidgeotto",
+      "url": "https://pokeapi.co/api/v2/pokemon/17/"
+    },
+    {
+      "name": "pidgeot",
+      "url": "https://pokeapi.co/api/v2/pokemon/18/"
+    },
+    {
+      "name": "rattata",
+      "url": "https://pokeapi.co/api/v2/pokemon/19/"
+    },
+    {
+      "name": "raticate",
+      "url": "https://pokeapi.co/api/v2/pokemon/20/"
+    }
+  ]
+}
 ```
 
 ## Mockup
 
-Here put a mix of text explanation plus a picture giving us an idea of the layout of your website.
+The page will display a form for the user to input their weight and below the pokemon in the weight class will populate below that.
 
 #### Desktop View
 
-![My Desktop View](https://i.imgur.com/5Bs7N6B.png)
+![My Desktop View](https://i.imgur.com/eZgCmKR.png)
 
 #### Mobile View
 
-![My Mobile View](https://i.imgur.com/5Bs7N6B.png)
+![My Mobile View](https://i.imgur.com/o2TP1PE.png)
 
 ## Schedule of Work
 
