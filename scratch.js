@@ -77,11 +77,14 @@ function fetchPokemon(userInput){
 function loadPokemon(pokemon){
 const pokediv = document.querySelector(".pokemon-info")
 let pokemonHeight = Math.round(pokemon.height / 3.048)
+let pokemonWeight = Math.round(pokemon.weight / 4.536)
 pokediv.innerHTML = `
-    <img src="${pokemon.sprites.front_default} "/>
-    <h1>${pokemon.name}</h1>
-    <h2>${pokemon.weight} pounds</h2>
-    <h3>${pokemonHeight} feet tall</h3>
+    <div class="poke-card">
+        <img src="${pokemon.sprites.front_default} "/>
+        <div class="card-name">${pokemon.name}</div>
+        <div class="card-weight">${pokemonWeight} pounds</div>
+        <div class="card-height">${pokemonHeight} feet tall</div>
+    </div>
 `
 }
 
@@ -116,28 +119,39 @@ function fetchPokemon2(pokeName2){
         // pokemon.name = data.name
         // pokemon.image = data.sprites.front_default
         // console.log(pokemon.image)
-        console.log(data)
+        // console.log(data)
     }
 )}
 
 
 // Need to find a way to iterate over all indeces of array with value of i 
 
+// array > object > filter c specific prop > given method filter used to sort what we're looking for 
+// FILTER LOOKS TO RETURN BOOLEAN EXPRESSION (truthy of falsey)
+
 function loadPokemon2(pokemon, pokeName2){
     const $pokediv2 = $(".pokemon-info2")
-    // let pokemonWeight = Math.round(pokemon[0].pokedex_weight * 2.2)
-    // console.log(pokemonWeight)
-    // const weightNameArray = []
-    //     console.log(weightNameArray)
-    // const filteredPokemon = pokemon.filter((item, index) => filteredPokemon.indexOf(item) === index)
-    pokemon.forEach(item => {
-        if(item.pokedex_weight < pokeName2) {
-            $pokediv2.append(`
-            <div>${item.pokemon_name}</div>
-            <div>${item.pokedex_weight} pounds</div>
-            `) 
-        }
+    const filteredPokemon = pokemon.filter((pokeObject) => {
+        return pokeObject.form === "Normal"
     })
+    filteredPokemon.forEach(item => {
+    if(item.pokedex_weight < pokeName2) {
+        $pokediv2.append(`
+        <div>${item.pokemon_name}</div>
+        <div>${item.pokedex_weight} pounds</div>
+        `) 
+    }
+    })
+    // Array.from(new Set(pokemon))
+    console.log(filteredPokemon)
+    // pokemon.forEach(item => {
+        // if(item.pokedex_weight < pokeName2) {
+        //     $pokediv2.append(`
+        //     <div>${item.pokemon_name}</div>
+        //     <div>${item.pokedex_weight} pounds</div>
+        //     `) 
+        // }
+    // })
 } 
 
 
