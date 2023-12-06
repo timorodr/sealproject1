@@ -91,7 +91,7 @@ event.preventDefault()
 const form = event.target
 const formData = new FormData(form)
 
-const pokeName = formData.get("poke-name")
+const pokeName = formData.get("poke-name") // this is the data it is getting from the form and pushing as an argument to get the users request
 // fetch the specified movie
 console.log(pokeName)
 fetchPokemon(pokeName)
@@ -111,25 +111,25 @@ function fetchPokemon2(){
     fetch(url1)
     .then((res) => {return res.json()})
     .then((data) => {  
+        loadPokemon2(data)
         // const pokemon = {}
         // pokemon.name = data.name
         // pokemon.image = data.sprites.front_default
         // console.log(pokemon.image)
         console.log(data)
-        loadPokemon2(data)
     }
 )}
-fetchPokemon2()
 
 
+// Need to find a way to iterate over all indeces of array with value of i 
 
 function loadPokemon2(pokemon){
     const pokediv2 = document.querySelector(".pokemon-info2")
-    let pokemonWeight = Math.round(pokemon[0].pokedex_weight * 2.2)
-    console.log(pokemonWeight)
+    // let pokemonWeight = Math.round(pokemon[0].pokedex_weight * 2.2)
+    // console.log(pokemonWeight)
         pokediv2.innerHTML = `
-        <div>${pokemon[0].pokemon_name}</div>
-        <div>${pokemonWeight} pounds</div>
+        <div>${pokemon[4].pokemon_name}</div>
+        <div>${pokemon[4].pokedex_weight} pounds</div>
         `
 }
 
@@ -144,9 +144,9 @@ const pokeName2 = formData2.get("poke-name2")
 fetchPokemon2(pokeName2)
 }
 
-document.querySelector(".form2").addEventListener("submit", handleSubmit2)
+document.querySelector(".form2").addEventListener("submit", handleSubmit2) 
 // initial call to populate the first movie
-fetchPokemon2(25)
+fetchPokemon2()
 
 
 // need to nest promise in main promise and 
