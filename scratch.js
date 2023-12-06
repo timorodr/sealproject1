@@ -127,11 +127,10 @@ function loadPokemon2(pokemon, pokeName2){
     const $pokediv2 = $(".pokemon-info2")
     // let pokemonWeight = Math.round(pokemon[0].pokedex_weight * 2.2)
     // console.log(pokemonWeight)
-    const weightNameArray = []
-                    pokemon.name = data.name
-                    pokemon.weight = data.weight
-    const filteredPokemon = pokemon.filter((item, index) => filteredPokemon.indexOf(item) === index)
-    filteredPokemon.forEach(item => {
+    // const weightNameArray = []
+    //     console.log(weightNameArray)
+    // const filteredPokemon = pokemon.filter((item, index) => filteredPokemon.indexOf(item) === index)
+    pokemon.forEach(item => {
         if(item.pokedex_weight < pokeName2) {
             $pokediv2.append(`
             <div>${item.pokemon_name}</div>
@@ -155,7 +154,7 @@ fetchPokemon2(pokeName2)
 
 function clearFrom() {
     const pokediv2 = document.querySelector(".pokemon-info2")
-    pokediv2.remove()
+    pokediv2.remove().reload()
 }
 
 
