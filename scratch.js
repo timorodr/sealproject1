@@ -106,12 +106,12 @@ fetchPokemon(25)
 
 
 
-function fetchPokemon2(){
+function fetchPokemon2(pokeName2){
     const url1 = `https://pogoapi.net/api/v1/pokemon_height_weight_scale.json`
     fetch(url1)
     .then((res) => {return res.json()})
     .then((data) => {  
-        loadPokemon2(data)
+        loadPokemon2(data, pokeName2)
         // const pokemon = {}
         // pokemon.name = data.name
         // pokemon.image = data.sprites.front_default
@@ -123,15 +123,23 @@ function fetchPokemon2(){
 
 // Need to find a way to iterate over all indeces of array with value of i 
 
-function loadPokemon2(pokemon){
-    const pokediv2 = document.querySelector(".pokemon-info2")
+function loadPokemon2(pokemon, pokeName2){
+    const $pokediv2 = $(".pokemon-info2")
     // let pokemonWeight = Math.round(pokemon[0].pokedex_weight * 2.2)
     // console.log(pokemonWeight)
-        pokediv2.innerHTML = `
-        <div>${pokemon[4].pokemon_name}</div>
-        <div>${pokemon[4].pokedex_weight} pounds</div>
-        `
-}
+    const weightNameArray = []
+                    pokemon.name = data.name
+                    pokemon.weight = data.weight
+    const filteredPokemon = pokemon.filter((item, index) => filteredPokemon.indexOf(item) === index)
+    filteredPokemon.forEach(item => {
+        if(item.pokedex_weight < pokeName2) {
+            $pokediv2.append(`
+            <div>${item.pokemon_name}</div>
+            <div>${item.pokedex_weight} pounds</div>
+            `) 
+        }
+    })
+} 
 
 
 function handleSubmit2(event) {
@@ -142,11 +150,19 @@ const formData2 = new FormData(form2)
 const pokeName2 = formData2.get("poke-name2")
 // fetch the specified movie
 fetchPokemon2(pokeName2)
+
 }
 
+function clearFrom() {
+    const pokediv2 = document.querySelector(".pokemon-info2")
+    pokediv2.remove()
+}
+
+
 document.querySelector(".form2").addEventListener("submit", handleSubmit2) 
+document.querySelector(".reset").addEventListener("click", clearFrom)
+
 // initial call to populate the first movie
-fetchPokemon2()
 
 
 // need to nest promise in main promise and 
