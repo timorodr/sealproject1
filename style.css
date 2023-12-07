@@ -2,34 +2,39 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* margin-left: 100% */
+}
+
+.card-photo {
+    width: 20rem;
+    margin-bottom: 0px
 }
 
 .poke-card {
     background-color: rgb(205, 24, 24);
     border-radius: 50%;
-    width: 200px;
-    height: 200px;
+    width: 35rem;
+    height: 35rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: rgb(3, 0, 0);
+    justify-content: center;
+    font-family: '8BIT WONDER', sans-serif;
 }
 
 .container {
-    text-align: center;
-    color:rgba(236, 57, 57, 0.9);
+    
+    color:rgba(231, 18, 18, 0.9);
     position: absolute;
     width: 100%;
     height: 100vh;
-    overflow: hidden;
+    overflow: visible;
 }
-
-main {
-    position: absolute;
-    width: 100%
-} 
 
 form {
 
-    margin: 10rem;
-    width: 100%
+    margin: 2rem;
+    /* width: 100% */
 
 }
 
@@ -41,7 +46,7 @@ form {
 
 body {
     min-height: 100vh;
-    background: #652c62;
+    background: #000000;
 }
 
 .bubbles {
@@ -53,12 +58,12 @@ body {
     position: relative;
     width: 30px;
     height: 30px;
-    background: #b13b1a;
+    background: #10000f;
     margin: 0 4px;
     border-radius: 50%;
-    box-shadow: 0 0 0 10px #b13b1a44, 0 0 50px #b13b1a, 0 0 100px #4fc3dc;
+    box-shadow: 0 0 0 10px #f1ecea44, 0 0 50px #000000, 0 0 100px #ffffff;
     animation: animate 15s linear infinite;
-    animation-duration: calc(10s / var(--i));
+    animation-duration: calc(20s / var(--i));
 }
 @keyframes animate
 {
@@ -76,6 +81,7 @@ img {
     animation: shake 1s;
     animation-iteration-count: infinite;
     display: flex;
+    padding: 1rem;
   }
   
   @keyframes shake {
@@ -96,4 +102,47 @@ img {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+  }
+
+  table, th, td {
+    border:10px groove rgb(45, 5, 5);
+    table-layout: fixed;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-family: '8BIT WONDER', sans-serif;
+  }
+
+  .form1, .form2 {
+    background: linear-gradient(45deg, rgb(164, 34, 34) 0%, rgb(255, 255, 255) 50%, rgb(164, 34, 34) 100%);
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    border-radius: 5rem;
+  }
+
+  h1, h2{
+    overflow: hidden;
+    text-align: center;
+    font-family: '8BIT WONDER', sans-serif;
+    padding-bottom: 1rem;
+    text-decoration: wavy;
+    animation: typing 1.5s steps(40, end), blink-caret .75s step-end infinite;
+  }
+
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
+  }
+
+  .card-name, .card-weight, .card-height, .card-types {
+    display: flex;
+    color: white;
+    margin-bottom: 20px;
+    position: relative
   }

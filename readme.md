@@ -10,14 +10,20 @@ DEPLOYED SITE: [Click here](https://sealproject1-gules.vercel.app/)
 
 ## Details about the API
 
-> The API I am using is a pokemon API with a wide-range of pokemon attributes for each pokemon. The API requires no authenication to utilize. 
-Give me a brief description of the API you are using and how you plan on using it. Does it use some sort of authentication like an APIkey. List some of the urls are using below.
+> Both of the API's I am using are pokemon API's with a wide-range of pokemon attributes for each pokemon. Both API's require no authenication to utilize. I am using 2 API's because the first API has an end point of either pokemon name or ID. The second API requires no end point and allow me access to all the data for all pokemon without specific endpoint.
 
-- `https://pokeapi.co/api/v2/pokemon/`: This returns a json object with all the different pokemon
+
+- `https://pokeapi.co/api/v2/pokemon/`: This returns a json object with all the different pokemon.
+`https://pogoapi.net/api/v1/pokemon_height_weight_scale.json`: This returns a json array of objects
 
 Sample Fetch/Ajax called:
 ```js
 const url = "https://pokeapi.co/api/v2/pokemon/"
+fetch(url)
+.then((res) => res.json())
+.then((data) => console.log(data))
+
+const url = "https://pogoapi.net/api/v1/pokemon_height_weight_scale.json"
 fetch(url)
 .then((res) => res.json())
 .then((data) => console.log(data))
@@ -116,7 +122,7 @@ The Data I get back:
 
 ## Mockup
 
-The page will display a form for the user to input their weight and below the pokemon in the weight class will populate below that.
+The page will display two forms for the user to input any pokemon name or ID at the first form and their weight in the second form which displays a list of pokemon in that weight and below.
 
 #### Desktop View
 
@@ -130,10 +136,10 @@ The page will display a form for the user to input their weight and below the po
 
 |Day | Goal | What I did accomplish |
 |----|------|-----------------------|
-| Sat | Create Readme, Deploy, Get Approval | |
-| Sun | Build fetch of data in JS file | |
-| Mon | Render data from API on screen | |
-| Tues | Build form for user to interact with | |
+| Sat | Create Readme, Deploy, Get Approval | Create Readme, Deploy, Get Approval|
+| Sun | Build fetch of data in JS file | Built both fetch of data in JS file|
+| Mon | Render data from API on screen | Render data from API on screen|
+| Tues | Build form for user to interact with | Build form for user to interact with |
 | Wed | wrap up functionaliity | |
 | Thurs | focus on mobile layout styling | |
 | Fri | Desktop layout styling | |

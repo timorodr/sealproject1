@@ -80,10 +80,11 @@ let pokemonHeight = Math.round(pokemon.height / 3.048)
 let pokemonWeight = Math.round(pokemon.weight / 4.536)
 pokediv.innerHTML = `
     <div class="poke-card">
-        <img src="${pokemon.sprites.front_default} "/>
-        <div class="card-name">${pokemon.name}</div>
-        <div class="card-weight">${pokemonWeight} pounds</div>
-        <div class="card-height">${pokemonHeight} feet tall</div>
+        <img src="${pokemon.sprites.front_default}" class="card-photo" />
+        <div class="card-name">Name: ${pokemon.name}</div>
+        <div class="card-weight">Weight: ${pokemonWeight} pounds</div>
+        <div class="card-height">Height: ${pokemonHeight} feet tall</div>
+        <div class="card-types">Type: ${pokemon.types[0].type.name}</div>
     </div>
 `
 }
@@ -95,13 +96,13 @@ const form = event.target
 const formData = new FormData(form)
 
 const pokeName = formData.get("poke-name") // this is the data it is getting from the form and pushing as an argument to get the users request
-// fetch the specified movie
+// fetch the specified pokemon
 console.log(pokeName)
 fetchPokemon(pokeName)
 }
 
-document.querySelector("form").addEventListener("submit", handleSubmit)
-// initial call to populate the first movie
+document.querySelector(".form1").addEventListener("submit", handleSubmit)
+// initial call to populate the first pokemon
 fetchPokemon(25)
 
 
@@ -137,8 +138,16 @@ function loadPokemon2(pokemon, pokeName2){
     filteredPokemon.forEach(item => {
     if(item.pokedex_weight < pokeName2) {
         $pokediv2.append(`
-        <div>${item.pokemon_name}</div>
-        <div>${item.pokedex_weight} pounds</div>
+            <table style="width:100%">
+                <tr>
+                    <th>Name</th>
+                    <th>Weight</th>
+                </tr>
+                <tr>
+                    <td>${item.pokemon_name}</td>
+                    <td>${item.pokedex_weight} </td>
+                </tr>
+            </table>
         `) 
     }
     })
@@ -160,7 +169,8 @@ event.preventDefault()
 const form2 = event.target
 const formData2 = new FormData(form2)
 // grab the movieTItle
-const pokeName2 = formData2.get("poke-name2")
+let pokeName2 = formData2.get("poke-name2")
+// console.log(typeof pokeName2)
 // fetch the specified movie
 fetchPokemon2(pokeName2)
 
