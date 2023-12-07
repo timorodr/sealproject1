@@ -145,7 +145,7 @@ function loadPokemon2(pokemon, pokeName2){
                 </tr>
                 <tr>
                     <td>${item.pokemon_name}</td>
-                    <td>${item.pokedex_weight} </td>
+                    <td>${item.pokedex_weight/2.2} </td>
                 </tr>
             </table>
         `) 
