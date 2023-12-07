@@ -113,6 +113,11 @@ img {
     font-family: '8BIT WONDER', sans-serif;
   }
 
+  th {
+    background: linear-gradient(45deg, rgb(164, 34, 34) 0%, rgb(255, 255, 255) 50%, rgb(164, 34, 34) 100%);
+    color: red
+  }
+
   .form1, .form2 {
     background: linear-gradient(45deg, rgb(164, 34, 34) 0%, rgb(255, 255, 255) 50%, rgb(164, 34, 34) 100%);
     display: flex;
