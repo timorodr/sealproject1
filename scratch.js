@@ -80,6 +80,7 @@ let pokemonHeight = Math.round(pokemon.height / 3.048)
 let pokemonWeight = Math.round(pokemon.weight / 4.536)
 pokediv.innerHTML = `
     <div class="poke-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoUn933j-_dzxMs9h_dv4Jh0E4z-mX03Mg_Q&usqp=CAU" class="card-background" />
         <img src="${pokemon.sprites.front_default}" class="card-photo" />
         <div class="card-name">Name: ${pokemon.name}</div>
         <div class="card-weight">Weight: ${pokemonWeight} pounds</div>
@@ -136,8 +137,8 @@ function loadPokemon2(pokemon, pokeName2){
         return pokeObject.form === "Normal"
     })
     filteredPokemon.forEach(item => {
-    if(item.pokedex_weight < pokeName2) {
-        $pokediv2.append(`
+    if(Number(item.pokedex_weight * 2.2) > Number(pokeName2)-5 && Number(item.pokedex_weight * 2.2) < (Number(pokeName2)+5)) {
+        $pokediv2.append(` 
             <table style="width:100%">
                 <tr>
                     <th>Name</th>
@@ -145,22 +146,15 @@ function loadPokemon2(pokemon, pokeName2){
                 </tr>
                 <tr>
                     <td>${item.pokemon_name}</td>
-                    <td>${item.pokedex_weight/2.2} </td>
+                    <td>${Math.round(item.pokedex_weight * 2.2)} pounds </td>
                 </tr>
             </table>
         `) 
+        console.log($pokediv2)
     }
     })
-    // Array.from(new Set(pokemon))
     console.log(filteredPokemon)
-    // pokemon.forEach(item => {
-        // if(item.pokedex_weight < pokeName2) {
-        //     $pokediv2.append(`
-        //     <div>${item.pokemon_name}</div>
-        //     <div>${item.pokedex_weight} pounds</div>
-        //     `) 
-        // }
-    // })
+   
 } 
 
 
