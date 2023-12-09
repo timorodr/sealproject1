@@ -6,7 +6,7 @@ DEPLOYED SITE: [Click here](https://sealproject1-gules.vercel.app/)
 ## Description on Project
 
 
-> I am creating a Pokemon fight club app based on weight class. The user will input their own weight and based on that a host of pokemon in your weight class will be the pokemon you would have to fight if you were a pokemon.
+> I am creating a searchable pokedex and Pokemon fight club app based on weight class. The user will input their own weight and based on that, a host of pokemon in your weight class will be the pokemon you would have to fight if you were a pokemon.
 
 ## Details about the API
 
@@ -118,19 +118,46 @@ The Data I get back:
     }
   ]
 }
+
+[
+    {
+        "buddy_scale": 19.0,
+        "form": "Fall_2019",
+        "height_standard_deviation": 0.0875,
+        "model_height": 0.7,
+        "model_scale": 0.89,
+        "pokedex_height": 0.7,
+        "pokedex_weight": 6.9,
+        "pokemon_id": 1,
+        "pokemon_name": "Bulbasaur",
+        "weight_standard_deviation": 0.8625
+    },
+    {
+        "buddy_scale": 19.0,
+        "form": "Normal",
+        "height_standard_deviation": 0.0875,
+        "model_height": 0.7,
+        "model_scale": 0.89,
+        "pokedex_height": 0.7,
+        "pokedex_weight": 6.9,
+        "pokemon_id": 1,
+        "pokemon_name": "Bulbasaur",
+        "weight_standard_deviation": 0.8625
+    }
+]
 ```
 
 ## Mockup
 
-The page will display two forms for the user to input any pokemon name or ID at the first form and their weight in the second form which displays a list of pokemon in that weight and below.
+The page will display two forms for the user to input any pokemon name or ID at the first form and their weight in the second form which displays a list of pokemon in that weight division +- 5 pounds.
 
 #### Desktop View
 
-![My Desktop View](https://i.imgur.com/eZgCmKR.png)
+![My Desktop View](https://i.imgur.com/dNggVJz.png)
 
 #### Mobile View
 
-![My Mobile View](https://i.imgur.com/o2TP1PE.png)
+![My Mobile View](https://i.imgur.com/y2exlGW.png)
 
 ## Schedule of Work
 
@@ -140,7 +167,7 @@ The page will display two forms for the user to input any pokemon name or ID at 
 | Sun | Build fetch of data in JS file | Built both fetch of data in JS file|
 | Mon | Render data from API on screen | Render data from API on screen|
 | Tues | Build form for user to interact with | Build form for user to interact with |
-| Wed | wrap up functionaliity | |
-| Thurs | focus on mobile layout styling | |
-| Fri | Desktop layout styling | |
-| Sat  | Preset Project | |
+| Wed | wrap up functionaliity | Began styling desktop view|
+| Thurs | focus on mobile layout styling | Wrapped up functionality |
+| Fri | Desktop layout styling | Mobile styling complete|
+| Sat  | Present Project | |

@@ -65,12 +65,17 @@ body {
     position: relative;
     width: 30px;
     height: 30px;
-    background: #10000f;
+    background: #c119b6;
     margin: 0 4px;
     border-radius: 50%;
-    box-shadow: 0 0 0 10px #f1ecea44, 0 0 50px #000000, 0 0 100px #ffffff;
+    box-shadow: 0 0 0 10px #c119b644, 0 0 50px #c119b6, 0 0 100px #c119b6;
     animation: animate 15s linear infinite;
-    animation-duration: calc(20s / var(--i));
+    animation-duration: calc(50s / var(--i));
+}
+
+.bubbles span:nth-child(even) {
+  box-shadow: 0 0 0 10px #3011cd44, 0 0 50px #3011cd, 0 0 100px #3011cd;
+  background: #3011cd;
 }
 @keyframes animate
 {

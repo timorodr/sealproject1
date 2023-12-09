@@ -1,76 +1,28 @@
 
 
-
-
-
-// function fetchPokemon(){
-//         const url = `http://pokeapi.co/api/v2/pokemon/1/`
-        // const url = `https://pogoapi.net/api/v1/pokemon_height_weight_scale.json`
-//             fetch(url)
-//                 .then((res) => {return res.json()})
-//                 .then((data) => {  
-//                     // loadPokemon(data)
-//                     // const pokemon = {}
-//                     // pokemon.name = data.name
-//                     // pokemon.image = data.sprites.front_default
-//                     // console.log(pokemon.image)
-//                     console.log(url)
-//                 }
-//             )}
-
-
-
-// function loadPokemon(pokemon){
-//     const pokediv = document.querySelector(".pokemon-info")
-//     let pokedexWeight = Math.round(pokemon[2].pokedex_weight * 2.2)
-//     let pokemonHeight = Math.round(pokemon[2].pokedex_height * 3.2)
-//     pokediv.innerHTML = `
-//         <img src=""/>
-//         <h1>${pokemon[2].pokemon_name}</h1>
-//         <h2>${pokemon[2].pokedex_weight} pounds</h2>
-//         <h3>${pokemon[2].pokedex_height} feet tall</h3>
-//     `
-// }
-
-
-// function handleSubmit(event) {
-//     event.preventDefault()
-//     const form = event.target
-//     const formData = new FormData(form)
-//     // grab the movieTItle
-//     const pokeName = formData.get("poke-name")
-//     // fetch the specified movie
-//     fetchPokemon(pokeName)
-// }
-
-// document.querySelector("form").addEventListener("submit", handleSubmit)
-// // initial call to populate the first movie
-// fetchPokemon(25)
-
-
-
-
-
-
 // ***************** WORKING POKEDEX
 
-
+// A function created to fetch the data in our pokemon API with endpoint of pokemon name or ID
+// Not truly the users input but helped me remember what end point is
+// receiving json data object to utilize
+// calling our pokemon object in this function as well
 
 
 function fetchPokemon(userInput){
     const url = `https://pokeapi.co/api/v2/pokemon/${userInput}`
-    // const url = `https://pogoapi.net/api/v1/pokemon_height_weight_scale.json`
         fetch(url)
             .then((res) => {return res.json()})
             .then((data) => {  
                 loadPokemon(data)
-                // const pokemon = {}
-                // pokemon.name = data.name
-                // pokemon.image = data.sprites.front_default
-                // console.log(pokemon.image)
                 console.log(url)
             }
         )}
+
+
+// A function created that passes pokemon as a parameter (all the data for specific pokemon in an object)
+// Created a variable to target a div by its class and later injecting other divs/images and properties
+// from the pokemon object.
+// Variables created to convert height from decimeters to feet and hectorgrams to pounds
 
 
 
@@ -88,7 +40,15 @@ pokediv.innerHTML = `
         <div class="card-types">Type: ${pokemon.types[0].type.name}</div>
     </div>
 `
+console.log(pokemon)
 }
+
+
+
+// A function created to handle our form submissions from the user with event passed as parameter
+// Prevents the refreshing from the page from the form submission
+// Created a variable to grab the form from the event
+// Created a variable to access the form data
 
 
 function handleSubmit(event) {
@@ -103,6 +63,7 @@ fetchPokemon(pokeName)
 }
 
 document.querySelector(".form1").addEventListener("submit", handleSubmit)
+//event listener to the form on submission our handleSubmit function will run
 // initial call to populate the first pokemon
 fetchPokemon(25)
 
@@ -117,11 +78,6 @@ function fetchPokemon2(pokeName2){
     .then((res) => {return res.json()})
     .then((data) => {  
         loadPokemon2(data, pokeName2)
-        // const pokemon = {}
-        // pokemon.name = data.name
-        // pokemon.image = data.sprites.front_default
-        // console.log(pokemon.image)
-        // console.log(data)
     }
 )}
 
@@ -132,11 +88,11 @@ function fetchPokemon2(pokeName2){
 // FILTER LOOKS TO RETURN BOOLEAN EXPRESSION (truthy of falsey)
 
 function loadPokemon2(pokemon, pokeName2){
-    const $pokediv2 = $(".pokemon-info2")
-    const filteredPokemon = pokemon.filter((pokeObject) => {
+    const $pokediv2 = $(".pokemon-info2") // jQuery here
+    const filteredPokemon = pokemon.filter((pokeObject) => { // PROUD OF THIS filters through array of all truthy values matching "Normal" since we had duplicates
         return pokeObject.form === "Normal"
     })
-    filteredPokemon.forEach(item => {
+    filteredPokemon.forEach(item => { // forEach iterates over each index with conditional that turns strings into numbers and creates a range of +- 5 pounds based on users input of weight
     if(Number(item.pokedex_weight * 2.2) > Number(pokeName2)-5 && Number(item.pokedex_weight * 2.2) < (Number(pokeName2)+5)) {
         $pokediv2.append(` 
             <table style="width:100%">
@@ -149,7 +105,7 @@ function loadPokemon2(pokemon, pokeName2){
                     <td>${Math.round(item.pokedex_weight * 2.2)} pounds </td>
                 </tr>
             </table>
-        `) 
+        `) // A table is created with name and weight values
         console.log($pokediv2)
     }
     })
@@ -162,10 +118,8 @@ function handleSubmit2(event) {
 event.preventDefault()
 const form2 = event.target
 const formData2 = new FormData(form2)
-// grab the movieTItle
 let pokeName2 = formData2.get("poke-name2")
 // console.log(typeof pokeName2)
-// fetch the specified movie
 fetchPokemon2(pokeName2)
 
 }
@@ -178,9 +132,3 @@ function clearFrom() {
 
 document.querySelector(".form2").addEventListener("submit", handleSubmit2) 
 document.querySelector(".reset").addEventListener("click", clearFrom)
-
-// initial call to populate the first movie
-
-
-// need to nest promise in main promise and 
-// make each pokemon its own object in array and attach appropriate key-value pairs i want
